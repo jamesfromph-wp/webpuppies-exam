@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpuppies | Exam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <script src="/lib/cdn.tailwindcss.com_3.3.3.js"></script>
+  <script src="/lib/unpkg.com_vue@3.3.4_dist_vue.global.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          figtree: ['Figtree', 'sans-serif']
+        },
+        extend: {
+          colors: {
+            'primary': '#ff7a00',
+            'primary-dark': '#241c15',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    .container {
+      max-width: 1120px;
+      margin: auto;
+    }
+
+    .btn-primary {
+      @apply bg-primary text-white text-lg py-2 px-6 rounded hover:bg-white hover:text-primary-dark;
+      box-shadow: 3px 3px 0px #ff7a0050;
+    }
+
+    .btn-primary-no-shadow {
+      @apply bg-primary text-white text-sm py-2 px-8 rounded transition-colors duration-200 hover:bg-white hover:text-primary-dark;
+    }
+
+    .btn-primary-dark {
+      @apply bg-primary-dark text-white text-lg py-2 px-8 rounded hover:bg-primary;
+      box-shadow: 3px 3px 0px #dedddc;
+    }
+
+    section {
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #hero {
+      background-image: url(/images/Frame-1424-1.png);
+    }
+
+    #strategy {
+      background-image: url(/images/Group-39.png);
+    }
+
+    #design {
+      background-image: url(/images/Group-40.png);
+    }
+
+    #development {
+      background-image: url(/images/Slice-2-1.png);
+    }
+
+    #mobile-seo {
+      background-image: url(/images/Group-55-1-1.png);
+    }
+
+    #portfolio .nav-link {
+      @apply px-5 py-5 rounded-full cursor-pointer hover:bg-primary/10;
+    }
+
+    #get-started {
+      background-image: url(/images/Frame-1383.png);
+    }
+
+    footer .input-primary {
+      @apply bg-white px-3 py-2 rounded border outline-none transition-colors duration-150 hover:bg-white/90 focus:bg-white/90;
+    }
+  </style>
+</head>
+
+<body id="app" class="font-figtree text-primary-dark">
+  <header class="bg-white">
+    <div class="container flex items-center justify-between px-5 py-6">
+      <a href="/" class="relative">
+        <span class="font-black text-4xl">james</span>
+        <span class="absolute font-bold text-primary text-xs">23</span>
+      </a>
+
+      <div class="hidden items-center bg-primary/10 text-lg px-5 py-2 rounded-full lg:flex">
+        <a href="#strategy" class="px-6 hover:text-primary" :class="{'text-primary' : state.route == 'services'}" @click="onNavigate('services')">services</a>
+        <a href="#" class="px-6 hover:text-primary" :class="{'text-primary' : state.route == 'about'}" @click="onNavigate('about')">about</a>
+        <a href="#" class="px-6 hover:text-primary" :class="{'text-primary' : state.route == 'blog'}" @click="onNavigate('blog')">blog</a>
+        <a href="#" class="px-6 hover:text-primary" :class="{'text-primary' : state.route == 'faqs'}" @click="onNavigate('faqs')">faqs</a>
+        <a href="#" class="px-6 hover:text-primary" :class="{'text-primary' : state.route == 'contact'}" @click="onNavigate('contact')">contact</a>
+      </div>
+
+      <button class="hidden btn-primary-dark lg:block">
+        contact
+      </button>
+
+      <!-- mobile toggle -->
+      <div class="bg-primary/10 flex flex-col items-end p-3 rounded lg:hidden" @click="onMenuToggle(true)">
+        <span class="bg-primary-dark w-6 h-1 rounded-full"></span>
+        <span class="bg-primary-dark w-8 h-1 rounded-full my-1"></span>
+        <span class="bg-primary-dark w-6 h-1 rounded-full"></span>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="bg-primary">
+    <div class="container relative flex flex-col px-5">
+      <span class="max-w-[600px] font-black text-white text-[55px] text-center leading-[65px] pt-14 pb-0 mx-auto mt-10">
+        full website design and development services
+      </span>
+
+      <img src="/images/Group-53-1-2048x990.png" class="relative top-6 px-10">
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-cols-1 gap-10 px-5 py-24 lg:grid-cols-2">
+      <div class="flex flex-col w-full font-black">
+        <span class="text-primary text-[40px] leading-[45px]">full website development services that's</span>
+        <span class="bg-primary/10 w-fit text-[40px] leading-[45px] rounded-full">right for your business</span>
+      </div>
+
+      <div class="relative flex flex-col w-full">
+        <span class="text-lg">
+          Save your precious time and money and let us build your ideal website for you.
+          Most of our clients just wants a website for their business but don't know where to begin.
+        </span>
+
+        <span class="text-lg mt-5">
+          We'll eliminate the guess work and present the best solution based on what you need for your business.
+        </span>
+
+        <img src="/images/Group-2.png" class="absolute -bottom-10 right-0 w-14" style="transform: rotateY(180deg)">
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="bg-primary-dark">
+    <div class="container px-5 pt-24 pb-10 lg:pb-24">
+      <div class="grid grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-10">
+        <img src="/images/web-design-2.png" class="w-full">
+
+        <div class="col-span-2 flex flex-col w-full">
+          <span class="font-black text-primary text-[40px] leading-[45px] py-5">
+            website strategy
+          </span>
+
+          <span class="text-white text-lg">
+            Our process always starts with understanding what our clients need.
+            Once we have a better understanding of what exactly is needed, we start the website strategy.
+            Whether you are just looking for consultation or you are ready for a website build, we always start here. 
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-2">
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-dark.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-white text-lg ml-5">
+            We don't want to waste your time, money and effort.
+            With a clear website strategy, we eliminate the gray areas
+            and possible road blocks that arise when there's poor communication between parties.
+          </span>
+        </div>
+  
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-dark.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-white text-lg ml-5">
+            After reviewing our proposed strategy for the project,
+            we can proceed to the next phase with a clear understanding of what
+            needs to be accomplished once the project starts.
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center w-full mt-24">
+        <button class="btn-primary shadow-custom shadow-primary/10">
+          book a consultation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="design" class="bg-[#fff3e8]">
+    <div class="container px-5 pt-24 pb-10 lg:pb-24">
+      <div  class="grid grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-10">
+        <img src="/images/Group-54.png" class="w-full">
+
+        <div class="col-span-2 flex flex-col w-full">
+          <span class="font-black text-primary text-[40px] leading-[45px] py-5 mt-5">
+            website design
+          </span>
+
+          <span class="text-lg">
+            We pride ourselves in designing websites that match your brand and your industry.
+            We strive to provide the highest quality service to our clients and we want to showcase
+            our expertise through thoughtfully designed websites that lasts a long time.
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-2">
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-light.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-lg ml-5">
+            Having worked with various industries in the past decade, we have a good grasp of what works
+            and what doesn't when it comes to online presence. We try to design websites that will stand
+            the fast-paced design trends that go out of style just after a year or two. 
+          </span>
+        </div>
+  
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-light.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-lg ml-5">
+            Our approach is to provide clean, modern design that is focused on conversion.
+            We want to make sure that your website stays true to your brand and will smoke your competition through the years.
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center w-full mt-24">
+        <button class="btn-primary shadow-custom shadow-primary/10">
+          book a consultation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="development" class="bg-primary-dark">
+    <div class="container px-5 pt-24 pb-10 lg:pb-24">
+      <div class="grid grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-10">
+        <img src="/images/web-design-3.png" class="w-full">
+
+        <div class="col-span-2 flex flex-col w-full">
+          <span class="font-black text-primary text-[40px] leading-[45px] py-5 mt-5">
+            website development
+          </span>
+
+          <span class="text-white text-lg">
+            Once your website design and functionality is approved, we move on to building your website.
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-2">
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-dark.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-white text-lg ml-5">
+            We build websites using tools that has been the industry's gold standard.
+            We don't just build websites that look good, we want to make sure they are well designed, work as intended, and are secured.
+          </span>
+        </div>
+  
+        <div class="flex w-full"><div class="wrapper">
+          <div class="bg-primary aspect-ratio p-3 rounded-full">
+            <img src="/images/thumb-dark.svg" class="min-w-[40px] max-w-[40px]">
+          </div>
+        </div>
+
+          <span class="text-white text-lg ml-5">
+            During this phase of the project, you will be given timely updates so you can see the progress.
+            We will give you time to make updates during the build to ensure that the website is on-point,
+            based on what was initially discussed during the design phase.
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center w-full mt-24">
+        <button class="btn-primary shadow-custom shadow-primary/10">
+          book a consultation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="mobile-seo" class="bg-[#fff3e8]">
+    <div class="container px-5 pt-24 pb-10 lg:pb-24">
+      <div  class="grid grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-10">
+        <img src="/images/Group-55-1.png" class="w-full">
+
+        <div class="col-span-2 flex flex-col w-full">
+          <span class="font-black text-primary text-[40px] leading-[45px] py-5 mt-5">
+            mobile responsive and SEO-ready
+          </span>
+
+          <span class="text-lg">
+            We want to deliver high quality websites and that means we want to ensure that it performs
+            well on different screen sizes and is built with SEO-ready strategies.
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-2">
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-light.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-lg ml-5">
+            Having a mobile responsive website is essential in today's digital age as it improves user experience,
+            increases search engine visibility, and ultimately drives more traffic and conversions. With the growing
+            use of mobile devices to access the internet, it's important to show up where your customers are looking.
+          </span>
+        </div>
+  
+        <div class="flex w-full">
+          <div class="wrapper">
+            <div class="bg-primary aspect-ratio p-3 rounded-full">
+              <img src="/images/thumb-light.svg" class="min-w-[40px] max-w-[40px]">
+            </div>
+          </div>
+
+          <span class="text-lg ml-5">
+            With our extensive SEO knowledge, we understand how it can help new websites rank organically.
+            By optimizing on-page elements such as page titles, meta descriptions, header tags, and content,
+            you can signal to search engines what your website is about and make it more likely to appear in relevant searches.
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center w-full mt-24">
+        <button class="btn-primary shadow-custom shadow-primary/10">
+          book a consultation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container flex flex-col items-center px-5 py-10 lg:py-32">
+      <span class="bg-primary/10 font-black text-primary text-5xl w-fit px-5 py-2 rounded-full">Portfolio</span>
+
+      <div class="flex-col text-center mt-5 lg:flex">
+        <span class="text-lg text-center">Whether it’s your fist time to take your business online or</span>
+        <span class="text-lg text-center">you want a new look for your old website, we’ll make it easy for you.</span>
+      </div>
+
+      <div class="flex items-center justify-between w-full text-xl mt-20 lg:w-2/3">
+        <span class="nav-link" @click="state.portfolio = 'business'"
+          :class="[state.portfolio == 'business' ? 'bg-primary/10' : 'bg-transparent']">
+          Business Websites
+        </span>
+
+        <span class="nav-link" @click="state.portfolio = 'ecommerce'"
+          :class="[state.portfolio == 'ecommerce' ? 'bg-primary/10' : 'bg-transparent']">
+          E-Commerce Websites
+        </span>
+        <span class="nav-link" @click="state.portfolio = 'landing'"
+          :class="[state.portfolio == 'landing' ? 'bg-primary/10' : 'bg-transparent']">
+          Landing Page
+        </span>
+      </div>
+
+      <div v-if="state.portfolio == 'business'" id="business" class="grid grid-cols-1 gap-10 mt-20 lg:grid-cols-3">
+        <div class="flex flex-col">
+          <img src="/images/Happy-Smiles-Dental-Care-Children-s-Specialist-Dentist.png" class="border border-primary/50">
+          <img src="/images/Virtual-Assistants-in-the-Philippines-VA-House-PH-1.png" class="border border-primary/50 mt-10">
+          <img src="/images/Summerside-Health.png" class="border border-primary/50 mt-10">
+        </div>
+
+        <div class="flex flex-col">
+          <img src="/images/Art-of-Content-by-Out-of-Scratch-1.png" class="border border-primary/50">
+          <img src="/images/Home-El-Sancho-Hotel.png" class="border border-primary/50 mt-10">
+        </div>
+
+        <div class="flex flex-col">
+          <img src="/images/ahnexgroup-homepage-1.png" class="border border-primary/50">
+          <img src="/images/Safer-Driving-School.png" class="border border-primary/50 mt-10">
+          <img src="/images/US-Visa-Consultants-Philippines-I-Got-Visa-Consultation.png" class="border border-primary/50 mt-10">
+        </div>
+      </div>
+
+      <div v-if="state.portfolio == 'ecommerce'" id="ecommerce" class="grid grid-cols-1 gap-10 mt-20 lg:grid-cols-2">
+        <div class="flex flex-col">
+          <img src="/images/Ilocaneza.png" class="border border-primary/50">
+        </div>
+
+        <div class="flex flex-col">
+          <img src="/images/hififarms-1.png" class="border border-primary/50">
+        </div>
+      </div>
+
+      <div v-if="state.portfolio == 'landing'" id="landing" class="grid grid-cols-1 gap-10 mt-20 lg:grid-cols-2">
+        <div class="flex flex-col">
+          <img src="/images/North-Star-Recruitment.png" class="border border-primary/50">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-started" class="bg-primary">
+    <div class="text-center py-20">
+      <span class="font-black text-white text-[40px] leading-[45px] py-5 mt-5">
+        want your own managed outsource  team for website development?
+      </span>
+
+      <a href="#" class="flex items-center justify-center text-primary-dark mt-5">
+        <span>get started today</span>
+        <img src="/images//arrow_outward.png" class="w-8 ml-2">
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-primary-dark flex flex-col">
+    <div class="container grid grid-cols-1 gap-10 px-5 py-24 lg:grid-cols-3">
+      <div class="col-span-1 flex flex-col w-full">
+        <div class="relative">
+          <span class="font-black text-white text-4xl">james</span>
+          <span class="absolute font-bold text-primary text-xs">23</span>
+        </div>
+
+        <span class="font-medium text-white text-lg mt-8">
+          contact our me today and let's discuss your website project
+        </span>
+
+        <div class="flex flex-col mt-8">
+          <span class="font-bold text-white text-xl">prefer email?</span>
+          <span class="text-white text-lg">jamesmalatabon@gmail.com</span>
+        </div>
+
+        <div class="flex flex-col mt-8">
+          <span class="font-bold text-white text-xl">mobile number?</span>
+          <span class="text-white text-lg">+63 927 430 4703</span>
+        </div>
+      </div>
+
+      <form class="col-span-2 flex flex-col w-full mt-10 lg:mt-0" @submit.prevent="onSubmit">
+        <span class="font-black text-white text-xl">contact us</span>
+
+        <div class="grid grid-cols-1 gap-5 mt-8 lg:grid-cols-2">
+          <div class="flex flex-col w-full">
+            <div class="flex items-center">
+              <span class="font-black text-white text-xs">full name</span>
+              <span class="font-black text-red-500 text-xs ml-1">*</span>
+            </div>
+
+            <input v-model="form.fullname" type="text" class="input-primary mt-1" required
+              :class="[form.fullname !== '' &&  !validFullname ? 'border-red-500' : 'border-transparent']">
+
+            <span v-if="form.fullname !== '' &&  !validFullname" class="bg-red-100 text-red-500 text-xs px-3 py-1 mt-2 rounded-sm">
+              This field is required. Please input your name.
+            </span>
+          </div>
+
+          <div class="flex flex-col w-full">
+            <div class="flex items-center">
+              <span class="font-black text-white text-xs">email address</span>
+              <span class="font-black text-red-500 text-xs ml-1">*</span>
+            </div>
+
+            <input v-model="form.email" type="email" class="input-primary mt-1" required
+              :class="[form.email !== '' &&  !validEmail ? 'border-red-500' : 'border-transparent']">
+
+            <span v-if="form.email !== '' && !validEmail" class="bg-red-100 text-red-500 text-xs px-3 py-1 mt-2 rounded-sm">
+              This field is required. Please input a valid email.
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-col w-full mt-5">
+          <span class="font-black text-white text-xs">message</span>
+          <textarea v-model="form.message" class="input-primary h-[150px] mt-1" maxlength="180"></textarea>
+          <span class="text-neutral-500 text-sm text-end mt-2">
+            {{ form.message.length }} / 180
+          </span>
+        </div>
+
+        <button type="submit" class="btn-primary-no-shadow w-full mt-5 lg:w-fit lg:mt-0">
+          Send
+        </button>
+      </form>
+    </div>
+
+    <span class="bg-white w-full text-sm text-center py-3">
+      James Malatabon Copyright {{ new Date().getFullYear() }}
+    </span>
+  </footer>
+
+  <!-- modals -->
+  <section v-if="state.mobile" class="fixed top-0 w-screen h-screen z-10 trasition-colors duration-200 lg:hidden"
+    :class="[state.mobileOpen ? 'bg-black/50' : 'bg-transparent']">
+    <div class="wrapper absolute bg-[#fff3e8] flex flex-col items-center justify-center w-full h-full max-w-[400px] transition-[right] duration-200"
+      :style="`right: ${state.mobileOpen ? 0 : -400}px`">
+      <img src="/images/close.png" class="absolute top-5 right-5 w-8" @click="onMenuToggle(false)">
+
+      <a href="#strategy" class="py-2 hover:text-primary" :class="{'text-primary' : state.route == 'services'}" @click="onNavigate('services')">services</a>
+      <a href="#" class="py-2 hover:text-primary" :class="{'text-primary' : state.route == 'about'}" @click="onNavigate('about')">about</a>
+      <a href="#" class="py-2 hover:text-primary" :class="{'text-primary' : state.route == 'blog'}" @click="onNavigate('blog')">blog</a>
+      <a href="#" class="py-2 hover:text-primary" :class="{'text-primary' : state.route == 'faqs'}" @click="onNavigate('faqs')">faqs</a>
+      <a href="#" class="py-2 hover:text-primary" :class="{'text-primary' : state.route == 'contact'}" @click="onNavigate('contact')">contact</a>
+    </div>
+  </section>
+</body>
+
+<script>
+  const { createApp, ref, reactive, computed } = Vue;
+
+  createApp({
+    setup() {
+
+      const state = reactive({
+        mobile: false,
+        mobileOpen: false,
+        route: 'services',
+        portfolio: 'business',
+      });
+
+      const form = reactive({
+        fullname: '',
+        email: '',
+        message: '',
+      });
+
+      const onMenuToggle = (open = true) => {
+        if (open) {
+          state.mobile = true;
+          timer = setTimeout(() => {
+            state.mobileOpen = true;
+            clearTimeout(timer);
+          }, 1);
+
+          return;
+        }
+
+        state.mobileOpen = false;
+        timer = setTimeout(() => {
+          state.mobile = false;
+          clearTimeout(timer);
+        }, 200);
+      }
+
+      const onNavigate = (target = 'services') => {
+        state.route = target;
+        onMenuToggle(false);
+      }
+
+      const onSubmit = () => {
+        // handle submitted data
+        if (validFullname && validEmail)
+          console.log('lezzgo');
+      }
+
+      const validFullname = computed(() => {
+        return /^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/.test(form.fullname);
+      });
+
+      const validEmail = computed(() => {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(form.email);
+      });
+
+      return {
+        state,
+        form,
+        onMenuToggle,
+        onNavigate,
+        onSubmit,
+        validFullname,
+        validEmail,
+      }
+    }
+  }).mount('#app');
+</script>
+
+</html>
