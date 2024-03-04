@@ -1,11 +1,15 @@
-tech used
-- tailwindcss
-- vue
+# Tech Used
 
-changes
-- changed logo
-- changed footer content
-- removed contact button on mobile view
-- added transition to mobile menu
+- Tailwind CSS
+- Vue.js
 
-please use live server to test
+# Changes
+
+- Changed logo
+- Changed footer content
+- Removed contact button on mobile view
+- Added transition to mobile menu
+
+# Testing Instructions
+
+Please use a live server to test the changes.
